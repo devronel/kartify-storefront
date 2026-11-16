@@ -65,8 +65,7 @@ export default function NavBar() {
               { label: "Home", href: "/" },
               { label: "Shop", href: "/shop" },
               { label: "About", href: "/about" },
-              { label: "Contact", href: "/contact" },
-              { label: "Admin", href: "/admin/products" }
+              { label: "Contact", href: "/contact" }
             ].map((item) => {
 
               const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);

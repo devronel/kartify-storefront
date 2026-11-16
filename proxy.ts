@@ -1,8 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-const PROTECTED_ROUTES = ['/admin', '/account', '/cart', '/checkout'];
-const ADMIN_ROUTES = ['/admin'];
+const PROTECTED_ROUTES = ['/account', '/cart', '/checkout'];
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -42,15 +41,6 @@ export async function proxy(request: NextRequest) {
     
     }
 
-    const isAdminRoute = ADMIN_ROUTES.some((route) => pathname.startsWith(route));
-    
-    if (isAdminRoute) {
-      const user = await response.json();
-      if (user.payload.role !== 'ADMIN') {
-        return NextResponse.redirect(new URL('/', request.url)); // or a 403 page
-      }
-    }
-
     return NextResponse.next();
     
   } catch (error) {
@@ -61,8 +51,7 @@ export async function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/account/:path*', 
-    '/admin/:path*', 
+    '/account/:path*',
     '/cart/:path*', 
     '/checkout/:path*'
   ],

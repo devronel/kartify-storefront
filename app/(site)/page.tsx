@@ -1,13 +1,31 @@
-export const metadata = {
-  title: "Kartify - Shop the Best Deals Online",
-  description:
-    "Discover a wide range of products at unbeatable prices. Shop electronics, fashion, home essentials, and more with fast shipping and secure checkout.",
+import { Metadata } from "next";
+import { Hero } from "@/components/home/Hero";
+import { FeaturedCategories } from "@/components/home/FeaturedCategories";
+import { NewArrivals } from "@/components/home/NewArrivals";
+import { ValueProps } from "@/components/home/ValueProps";
+import { HowItWorks } from "@/components/home/HowItWorks";
+import { ClosingCta } from "@/components/home/ClosingCta";
+
+export const metadata: Metadata = {
+  title: { absolute: "Kartify - Demo online store" },
+  description: "A demo store built to show how a real online shop works.",
+  openGraph: {
+    title: "Kartify - Demo online store",
+    description: "A demo store built to show how a real online shop works.",
+  },
 };
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <main>
-      <p>Welcome to Kartify</p>
+    <main className="min-h-screen bg-background">
+      <Hero />
+      <FeaturedCategories />
+      {/* TODO(logic): swap in <FeaturedCategoriesSkeleton /> while categories load */}
+      <NewArrivals />
+      {/* TODO(logic): swap in <NewArrivalsSkeleton /> while products load */}
+      <ValueProps />
+      <HowItWorks />
+      <ClosingCta />
     </main>
   );
 }

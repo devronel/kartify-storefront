@@ -12,7 +12,7 @@ export function FindOutMore() {
           <ul className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-6">
             <li>
               <a
-                href="#"
+                href="https://github.com/devronel"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
@@ -23,7 +23,7 @@ export function FindOutMore() {
             </li>
             <li>
               <a
-                href="#"
+                href="https://ronelflorida-code.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"

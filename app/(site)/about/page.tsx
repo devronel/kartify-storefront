@@ -6,8 +6,27 @@ import { WhatYouCanTry } from "@/components/about/what-you-can-try";
 import { BuiltWith } from "@/components/about/built-with";
 import { FindOutMore } from "@/components/about/find-out-more";
 
+const description = "Kartify is a full-stack e-commerce demo built to learn how real online stores work: storefront, admin, carts, orders and PayMongo payments in test mode.";
+
 export const metadata: Metadata = {
-  title: { absolute: "About | Kartify" },
+  title: "About",
+  description,
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About Kartify",
+    description,
+    url: "/about",
+    siteName: "Kartify",
+    locale: "en_PH",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "About Kartify",
+    description,
+  },
 };
 
 export default function AboutPage() {

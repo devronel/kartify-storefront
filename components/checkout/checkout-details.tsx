@@ -20,11 +20,11 @@ import { Spinner } from "../ui/spinner";
 
 const paymentMethods = [
   {
-    id: "paymongo",
-    name: "PayMongo",
+    id: "e-wallet",
+    name: "E-wallet & QR payment",
     initials: null,
-    logo: "assets/logos/paymongo-logo.png",
-    description: "Pay securely with GCash, Maya, or card via PayMongo.",
+    logo: <Wallet className="size-5 text-muted-foreground" aria-hidden="true" />,
+    description: "You'll choose how to pay on the next page.",
     isRecommended: true,
     isImagePlaceholder: true,
     disabled: false,
@@ -262,7 +262,7 @@ export default function CheckoutDetails({ checkoutDetails } : CheckoutDetailsPro
                   <div className="flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-muted text-sm font-semibold text-foreground">
                     {
                       method.isImagePlaceholder ? (
-                        <img src={method.logo} />
+                        method.logo
                       ) : method.initials ? (
                         method.initials
                       ) : (

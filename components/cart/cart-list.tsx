@@ -187,7 +187,7 @@ export default function CartList(){
 
       {/* Empty state — shown when the cart has no items */}
       {cartItems.length === 0 && (
-        <div className="flex min-h-75 flex-col items-center justify-center rounded-lg border border-dashed p-8 text-center">
+        <div className="flex min-h-75 flex-col items-center justify-center border border-dashed p-8 text-center">
           <div className="mb-4 flex size-12 items-center justify-center rounded-full bg-muted">
             <ShoppingCart className="size-6 text-muted-foreground" aria-hidden="true" />
           </div>
@@ -208,7 +208,7 @@ export default function CartList(){
 
         {/* Item List */}
         {cartItems.length > 0 && (
-          <div className="overflow-hidden rounded-lg border bg-card">
+          <div className="overflow-hidden border bg-card">
             <div className="flex items-center justify-between border-b px-4 py-3">
               <div className="flex items-center gap-2">
                 <Checkbox

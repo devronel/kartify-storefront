@@ -104,7 +104,7 @@ export default function ProductCard({
   }
 
   return (
-    <article className="group flex flex-col overflow-hidden rounded-xl border bg-card transition-shadow hover:shadow-md">
+    <article className="group flex flex-col overflow-hidden border bg-card transition-shadow hover:shadow-md">
       {/* Image */}
       <Link
         href={`/shop/${slug}`}
@@ -119,7 +119,7 @@ export default function ProductCard({
       </Link>
 
       {/* Details */}
-      <div className="flex flex-1 flex-col gap-1.5 p-4">
+      <div className="flex flex-1 flex-col gap-1.5 p-2">
         <p className="text-xs text-muted-foreground">{category}</p>
 
         <h3 className="truncate text-sm font-medium text-foreground">

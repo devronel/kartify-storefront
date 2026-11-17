@@ -141,7 +141,7 @@ function OrdersListSkeleton() {
 
 function OrdersEmptyState() {
   return (
-    <div className="flex min-h-64 flex-col items-center justify-center rounded-xl border border-dashed p-8 text-center">
+    <div className="flex min-h-64 flex-col items-center justify-center border border-dashed p-8 text-center">
       <div className="mb-4 flex size-12 items-center justify-center rounded-full bg-muted">
         <PackageOpen
           className="size-6 text-muted-foreground"
@@ -165,7 +165,7 @@ function OrdersEmptyState() {
 
 function OrdersFilteredEmptyState() {
   return (
-    <div className="flex min-h-64 flex-col items-center justify-center rounded-xl border border-dashed p-8 text-center">
+    <div className="flex min-h-64 flex-col items-center justify-center border border-dashed p-8 text-center">
       <div className="mb-4 flex size-12 items-center justify-center rounded-full bg-muted">
         <PackageSearch
           className="size-6 text-muted-foreground"

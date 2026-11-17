@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import { Roboto, Roboto_Mono } from "next/font/google";
+import { Roboto, Roboto_Mono, Inter, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toast";
 import { AuthProvider } from "@/context/AuthContext";
 import { apiServer } from "@/lib/api-server";
 import { ThemeProvider } from "@/components/theme-provider";
+import { cn } from "@/lib/utils";
+
+const nunitoSans = Nunito_Sans({subsets:['latin'],variable:'--font-sans'});
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -39,7 +42,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   }
 
   return (
-    <html lang="en" suppressHydrationWarning className={`${roboto.variable} ${robotoMono.variable} h-full antialiased`}>
+    <html lang="en" suppressHydrationWarning className={cn("h-full", "antialiased", roboto.variable, robotoMono.variable, "font-sans", nunitoSans.variable)}>
       <body className={`${roboto.className} min-h-full flex flex-col`}>
         <ThemeProvider
           attribute="class"

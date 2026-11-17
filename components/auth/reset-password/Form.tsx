@@ -100,11 +100,11 @@ export default function Form(props: ResetPasswordProps) {
   if (submitted) {
     return (
       <div className="text-center">
-        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50">
+        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-background">
           <KeyRound className="h-8 w-8 text-emerald-600" />
         </div>
-        <h2 className="text-2xl font-bold text-slate-900 mb-2">Password updated</h2>
-        <p className="text-slate-500 mb-8">
+        <h2 className="text-2xl font-bold text-foreground mb-2">Password updated</h2>
+        <p className="text-foreground mb-8">
           Your password has been reset successfully. You can now sign in with your new password.
         </p>
         <Link href="/login" className="inline-block w-full">
@@ -174,9 +174,9 @@ export default function Form(props: ResetPasswordProps) {
         </Button>
       </form>
 
-      <p className="mt-8 text-center text-sm text-slate-500">
+      <p className="mt-8 text-center text-sm text-foreground">
         Remembered your password?{" "}
-        <Link href="/login" className="text-slate-900 font-semibold hover:underline">
+        <Link href="/login" className="text-foreground font-semibold hover:underline">
           Sign in
         </Link>
       </p>

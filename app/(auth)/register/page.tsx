@@ -11,8 +11,8 @@ export default function Register() {
     <div className="min-h-screen flex">
       <div className="hidden lg:flex lg:w-1/2 lg:sticky lg:top-0 lg:h-screen bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden items-center justify-center">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-20 w-72 h-72 bg-white rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-white rounded-full blur-3xl" />
+          <div className="absolute top-20 left-20 w-72 h-72 bg-primary rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-primary rounded-full blur-3xl" />
         </div>
         <div className="relative z-10 text-center px-12">
           <div className="flex items-center justify-center gap-3 mb-8">
@@ -44,19 +44,19 @@ export default function Register() {
         </div>
       </div>
 
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-white overflow-y-auto">
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-background overflow-y-auto">
         <div className="w-full max-w-md">
           <div className="lg:hidden flex items-center gap-2 mb-10">
-            <svg className="w-8 h-8 text-slate-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <svg className="w-8 h-8 text-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
             </svg>
-            <span className="text-2xl font-bold text-slate-900 tracking-tight">Kartify</span>
+            <span className="text-2xl font-bold text-foreground tracking-tight">Kartify</span>
           </div>
 
-          <h1 className="text-3xl font-bold text-slate-900 mb-2">Create your account</h1>
-          <p className="text-slate-500 mb-8">
+          <h1 className="text-3xl font-bold text-foreground mb-2">Create your account</h1>
+          <p className="text-foreground mb-8">
             Already have an account?{" "}
-            <Link href="/login" className="text-slate-900 font-semibold hover:underline">
+            <Link href="/login" className="text-foreground font-semibold hover:underline">
               Sign in
             </Link>
           </p>

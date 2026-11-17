@@ -8,7 +8,7 @@ export default function OrderCardListComponent(){
     <ul className="space-y-4">
       {/* Pending */}
       <li>
-        <article className="rounded-xl bg-card text-sm text-card-foreground shadow-xs ring-1 ring-foreground/10">
+        <article className=" bg-card text-sm text-card-foreground shadow-xs ring-1 ring-foreground/10">
           <div className="flex flex-col gap-5 p-4 sm:p-6 md:flex-row md:items-center md:justify-between">
             <div className="min-w-0 flex-1 space-y-4">
               <div className="flex flex-wrap items-start justify-between gap-2">

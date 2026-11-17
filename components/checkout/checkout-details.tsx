@@ -183,51 +183,53 @@ export default function CheckoutDetails({ checkoutDetails } : CheckoutDetailsPro
               </CardTitle>
               <CardDescription>Where should we deliver your order?</CardDescription>
             </CardHeader>
-            <CardContent className="gap-3">
-              {userAddresses.map((address) => (
-                <label
-                  key={address.id}
-                  htmlFor={`address-${address.id}`}
-                  className="flex cursor-pointer gap-3 rounded-lg border p-4 transition-colors has-checked:border-primary has-checked:bg-primary/5"
-                >
-                  <input
-                    type="radio"
-                    id={`address-${address.id}`}
-                    name="shipping-address"
-                    checked={address.id === addressId}
-                    value={address.id}
-                    onChange={() => setAddressId(address.id)}
-                    className="mt-1 size-4 accent-primary"
-                  />
-                  <div className="min-w-0 flex-1">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-sm font-medium text-foreground">{address.shippingRecipientName}</span>
-                      <Badge variant="secondary">{address.label}</Badge>
-                      {address.isDefault ? <Badge>Default</Badge> : null}
+            <CardContent className="">
+              <div className="flex flex-col gap-3">
+                {userAddresses.map((address) => (
+                  <label
+                    key={address.id}
+                    htmlFor={`address-${address.id}`}
+                    className="flex cursor-pointer gap-3 rounded-lg border p-4 transition-colors has-checked:border-primary has-checked:bg-primary/5"
+                  >
+                    <input
+                      type="radio"
+                      id={`address-${address.id}`}
+                      name="shipping-address"
+                      checked={address.id === addressId}
+                      value={address.id}
+                      onChange={() => setAddressId(address.id)}
+                      className="mt-1 size-4 accent-primary"
+                    />
+                    <div className="min-w-0 flex-1">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="text-sm font-medium text-foreground">{address.shippingRecipientName}</span>
+                        <Badge variant="secondary">{address.label}</Badge>
+                        {address.isDefault ? <Badge>Default</Badge> : null}
+                      </div>
+                      <p className="mt-1 text-sm text-muted-foreground">{address.shippingPhone}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {address.shippingAddressLine1 + ", " + address.shippingBarangay}
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        {address.shippingCity + ", " + address.shippingProvince + " " + address.shippingPostalCode}
+                      </p>
                     </div>
-                    <p className="mt-1 text-sm text-muted-foreground">{address.shippingPhone}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {address.shippingAddressLine1 + ", " + address.shippingBarangay}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {address.shippingCity + ", " + address.shippingProvince + " " + address.shippingPostalCode}
-                    </p>
-                  </div>
-                </label>
-              ))}
+                  </label>
+                ))}
 
-              <Button onClick={() => setIsOpenCreateModal(true)}>
-                  <Plus /> Add New Address
-              </Button>
-              {
-                  isOpenCreateModal && (
-                      <AddressFormCreateDialog 
-                          open={isOpenCreateModal}
-                          onClose={() => setIsOpenCreateModal(false)}
-                          onCreated={(newAddress) => addCreatedAddress(newAddress)}
-                      />
-                  )
-              }
+                <Button onClick={() => setIsOpenCreateModal(true)}>
+                    <Plus /> Add New Address
+                </Button>
+                {
+                    isOpenCreateModal && (
+                        <AddressFormCreateDialog 
+                            open={isOpenCreateModal}
+                            onClose={() => setIsOpenCreateModal(false)}
+                            onCreated={(newAddress) => addCreatedAddress(newAddress)}
+                        />
+                    )
+                }
+              </div>
             </CardContent>
           </Card>
 
@@ -240,55 +242,57 @@ export default function CheckoutDetails({ checkoutDetails } : CheckoutDetailsPro
               </CardTitle>
               <CardDescription>All transactions are secure and encrypted.</CardDescription>
             </CardHeader>
-            <CardContent className="gap-3">
-              {paymentMethods.map((method) => (
-                <label
-                  key={method.id}
-                  htmlFor={`payment-${method.id}`}
-                  className={`flex items-center gap-3 rounded-lg border p-4 transition-colors ${
-                    method.disabled
-                      ? "cursor-not-allowed opacity-60"
-                      : "cursor-pointer has-checked:border-primary has-checked:bg-primary/5"
-                  }`}
-                >
-                  <input
-                    type="radio"
-                    id={`payment-${method.id}`}
-                    name="payment-method"
-                    defaultChecked={method.isRecommended}
-                    disabled={method.disabled}
-                    className="size-4 accent-primary disabled:cursor-not-allowed"
-                  />
-                  <div className="flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-muted text-sm font-semibold text-foreground">
-                    {
-                      method.isImagePlaceholder ? (
-                        method.logo
-                      ) : method.initials ? (
-                        method.initials
-                      ) : (
-                        <Banknote className="size-5 text-muted-foreground" aria-hidden="true" />
-                      )
-                    }
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="text-sm font-medium text-foreground">{method.name}</p>
-                    <p className="text-sm text-muted-foreground">{method.description}</p>
-                  </div>
-                  {method.disabled ? (
-                    <Badge variant="outline" className="text-muted-foreground">
-                      Unavailable
-                    </Badge>
-                  ) : method.isRecommended ? (
-                    <Badge variant="secondary">Recommended</Badge>
-                  ) : null}
-                </label>
-              ))}
+            <CardContent>
+              <div className="flex flex-col gap-3">
+                {paymentMethods.map((method) => (
+                  <label
+                    key={method.id}
+                    htmlFor={`payment-${method.id}`}
+                    className={`flex items-center gap-3 rounded-lg border p-4 transition-colors ${
+                      method.disabled
+                        ? "cursor-not-allowed opacity-60"
+                        : "cursor-pointer has-checked:border-primary has-checked:bg-primary/5"
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      id={`payment-${method.id}`}
+                      name="payment-method"
+                      defaultChecked={method.isRecommended}
+                      disabled={method.disabled}
+                      className="size-4 accent-primary disabled:cursor-not-allowed"
+                    />
+                    <div className="flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-muted text-sm font-semibold text-foreground">
+                      {
+                        method.isImagePlaceholder ? (
+                          method.logo
+                        ) : method.initials ? (
+                          method.initials
+                        ) : (
+                          <Banknote className="size-5 text-muted-foreground" aria-hidden="true" />
+                        )
+                      }
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm font-medium text-foreground">{method.name}</p>
+                      <p className="text-sm text-muted-foreground">{method.description}</p>
+                    </div>
+                    {method.disabled ? (
+                      <Badge variant="outline" className="text-muted-foreground">
+                        Unavailable
+                      </Badge>
+                    ) : method.isRecommended ? (
+                      <Badge variant="secondary">Recommended</Badge>
+                    ) : null}
+                  </label>
+                ))}
 
-              {/* Error state — TODO(logic): show when payment fails
-              <p className="text-sm text-destructive">
-                Your payment could not be processed. Please try again.
-              </p>
-              */}
+                {/* Error state — TODO(logic): show when payment fails
+                <p className="text-sm text-destructive">
+                  Your payment could not be processed. Please try again.
+                </p>
+                */}
+              </div>
             </CardContent>
           </Card>
         </div>

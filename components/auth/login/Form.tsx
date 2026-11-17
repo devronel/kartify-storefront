@@ -96,7 +96,7 @@ export default function Form() {
 
   return (
       <>
-        <button className="w-full flex items-center justify-center gap-3 border border-slate-300 rounded-xl py-3 px-4 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors">
+        <button className="w-full flex items-center justify-center gap-3 border border-primary rounded-xl py-3 px-4 text-sm font-medium text-foreground hover:bg-primary transition-colors">
             <svg className="w-5 h-5" viewBox="0 0 24 24">
               <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
               <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
@@ -108,10 +108,10 @@ export default function Form() {
 
         <div className="relative my-6">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-slate-200" />
+            <div className="w-full border-t border-primary" />
           </div>
           <div className="relative flex justify-center text-sm">
-            <span className="bg-white px-4 text-slate-400">or sign in with email</span>
+            <span className="bg-background px-4 text-foreground">or sign in with email</span>
           </div>
         </div>
 
@@ -146,11 +146,11 @@ export default function Form() {
                 type="checkbox"
                 checked={rememberMe}
                 onChange={(e) => setRememberMe(e.target.checked)}
-                className="w-4 h-4 rounded border-slate-300 text-slate-900 focus:ring-slate-900/20"
+                className="w-4 h-4 rounded border-primary text-primary focus:primary"
               />
-              <span className="text-sm text-slate-600">Remember me</span>
+              <span className="text-sm text-foreground">Remember me</span>
             </label>
-            <Link href="/forgot-password" className="text-sm font-medium text-slate-900 hover:underline">
+            <Link href="/forgot-password" className="text-sm font-medium text-primary hover:underline">
               Forgot password?
             </Link>
           </div>

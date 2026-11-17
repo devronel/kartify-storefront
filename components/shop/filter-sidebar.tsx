@@ -63,17 +63,17 @@ export default function FilterSidebar({
   const content = (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-slate-900">Filters</h3>
+        <h3 className="text-lg font-semibold text-foreground">Filters</h3>
         <button
           onClick={clearFilter}
-          className="text-xs cursor-pointer font-medium text-slate-500 hover:text-slate-900"
+          className="text-xs cursor-pointer font-medium text-foreground hover:text-slate-900"
         >
           Clear all
         </button>
       </div>
 
       <div>
-        <h4 className="text-sm font-medium text-slate-900 mb-3">Category</h4>
+        <h4 className="text-sm font-medium text-foreground mb-3">Category</h4>
         <div>
           {categories.map((category) => (
             <CategoryFilterList key={category.id} {...category} />

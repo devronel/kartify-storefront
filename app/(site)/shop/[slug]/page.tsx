@@ -11,7 +11,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     const response = await apiServer(`/api/products/${slug}`)
   
     return (
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-background">
         <ProductDetail 
           {...response.data}
         />    

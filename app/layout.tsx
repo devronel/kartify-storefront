@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toast";
 import { AuthProvider } from "@/context/AuthContext";
 import { apiServer } from "@/lib/api-server";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -38,15 +39,19 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   }
 
   return (
-    <html
-      lang="en"
-      className={`${roboto.variable} ${robotoMono.variable} h-full antialiased`}
-    >
+    <html lang="en" suppressHydrationWarning className={`${roboto.variable} ${robotoMono.variable} h-full antialiased`}>
       <body className={`${roboto.className} min-h-full flex flex-col`}>
-        <AuthProvider authUser={user}>
-          {children}
-          <Toaster />
-        </AuthProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <AuthProvider authUser={user}>
+            {children}
+            <Toaster />
+          </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

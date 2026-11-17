@@ -103,7 +103,7 @@ export default function ProductList(){
             Filters
           </Button>
 
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-foreground">
             {products
               ? `${products.payload.length} ${products.payload.length === 1 ? "product" : "products"}`
               : "Loading products…"}

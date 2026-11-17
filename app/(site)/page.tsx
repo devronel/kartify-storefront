@@ -5,6 +5,8 @@ import { NewArrivals } from "@/components/home/NewArrivals";
 import { ValueProps } from "@/components/home/ValueProps";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { ClosingCta } from "@/components/home/ClosingCta";
+import { apiServer } from "@/lib/api-server";
+import { FeatureCategory } from "@/types/category";
 
 export const metadata: Metadata = {
   title: { absolute: "Kartify - Demo online store" },
@@ -15,12 +17,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function HomePage() {
+export default async function HomePage() {
+
+  let featureCategories: FeatureCategory[] = []
+
+  try {
+    const featureCategoryResponse = await apiServer("/api/products/featured/categories")
+    featureCategories = featureCategoryResponse.data
+  } catch (error) {
+    throw new Error("Failed to fetch categories");
+  }
+
   return (
     <main className="min-h-screen bg-background">
       <Hero />
-      <FeaturedCategories />
-      {/* TODO(logic): swap in <FeaturedCategoriesSkeleton /> while categories load */}
+      <FeaturedCategories featuredCategories={featureCategories} />
       <NewArrivals />
       {/* TODO(logic): swap in <NewArrivalsSkeleton /> while products load */}
       <ValueProps />

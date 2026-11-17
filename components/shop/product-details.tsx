@@ -408,7 +408,7 @@ export default function ProductDetail({
               <div className="flex flex-col gap-3">
                 <div className="flex flex-wrap items-center gap-3">
                   {currentStockQuantity > 0 ? (
-                    <Badge variant="secondary" className="gap-1 text-primary">
+                    <Badge variant="default" className="gap-1">
                       <DatabaseCheck className="size-3.5" aria-hidden="true" />
                       In stock
                     </Badge>

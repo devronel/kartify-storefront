@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default async function CartPage(){
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
       
         <CartList />

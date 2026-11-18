@@ -7,6 +7,10 @@ import { HowItWorks } from "@/components/home/HowItWorks";
 import { ClosingCta } from "@/components/home/ClosingCta";
 import { apiServer } from "@/lib/api-server";
 import { FeatureCategory } from "@/types/category";
+import { PublicProduct } from "@/types/product";
+import { Paginate } from "@/types/paginate";
+import CustomPagination from "@/components/shared/pagination";
+import KartifyPagination from "@/components/shared/kartify-pagination";
 
 export const metadata: Metadata = {
   title: { absolute: "Kartify - Demo online store" },
@@ -17,23 +21,55 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function HomePage() {
+type Props = {
+  searchParams: Promise<{
+    page?: number
+  }>;
+}
 
-  let featureCategories: FeatureCategory[] = []
+export default async function HomePage({ searchParams }: Props) {
 
-  try {
-    const featureCategoryResponse = await apiServer("/api/products/featured/categories")
-    featureCategories = featureCategoryResponse.data
-  } catch (error) {
-    throw new Error("Failed to fetch categories");
+  const queryParams = new URLSearchParams();
+  const params = await searchParams;
+
+  queryParams.set("pageSize", "8")
+
+  if(params){
+    if(params.page){
+      queryParams.set("page", String(params.page))
+    }
   }
+
+
+  const [featureCategoryResponse, newArrivalResponse] = await Promise.all([
+    apiServer("api/products/featured/categories").catch(error => {
+      console.error("Failed to fetch categories", error)
+      return null
+    }),
+    apiServer(`/api/products/new-arrival?${queryParams.toString()}`).catch(error => {
+      console.error("Failed to fetch new arrival product", error)
+    })
+  ]);
+
+  const featureCategories: FeatureCategory[] = featureCategoryResponse?.data ?? []
+  const newArrival: Paginate<PublicProduct> = newArrivalResponse?.data ?? null
 
   return (
     <main className="min-h-screen bg-background">
       <Hero />
-      <FeaturedCategories featuredCategories={featureCategories} />
-      <NewArrivals />
-      {/* TODO(logic): swap in <NewArrivalsSkeleton /> while products load */}
+
+      {/* Featured Categories */}
+      {
+        featureCategories.length > 0 && <FeaturedCategories featuredCategories={featureCategories} /> 
+      }
+
+      {/* New Arrival */}
+      {
+        newArrival && 
+          newArrival.payload.length > 0 && 
+          <NewArrivals product={newArrival} page={params.page ?? 1} />
+      }
+
       <ValueProps />
       <HowItWorks />
       <ClosingCta />

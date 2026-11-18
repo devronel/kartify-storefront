@@ -66,7 +66,7 @@ export default function FilterSidebar({
         <h3 className="text-lg font-semibold text-foreground">Filters</h3>
         <button
           onClick={clearFilter}
-          className="text-xs cursor-pointer font-medium text-foreground hover:text-slate-900"
+          className="text-xs cursor-pointer font-medium text-foreground hover:underline"
         >
           Clear all
         </button>

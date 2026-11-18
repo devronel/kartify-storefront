@@ -63,48 +63,51 @@ export default function KartifyPagination({
   return (
       <Pagination>
           <PaginationContent>
+                <PaginationItem>
+                    {
+                        <PaginationPrevious
+                            href={hasPrevious ? previousAndNext("previous") : "#"}
+                            isDisabled={!hasPrevious}
+                            className={`${!hasPrevious ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+                        />
+                    }
 
-              <PaginationItem>
-                  <PaginationPrevious
-                      href={previousAndNext("previous")}
-                      isDisabled={!hasPrevious} 
-                      className={`${!hasPrevious ? 'cursor-not-allowed' : 'cursor-pointer'}`}
-                  />
-              </PaginationItem>
+                </PaginationItem>
 
-              {
+                {
                   pages.map((page, index) => {
-                      if(typeof page === "string"){
-                          return (
-                              <PaginationItem key={index}>
-                                  <PaginationEllipsis />
-                              </PaginationItem>
-                          )
-                      }
+                      
+                    if(typeof page === "string"){
+                        return (
+                            <PaginationItem key={index}>
+                                <PaginationEllipsis />
+                            </PaginationItem>
+                        )
+                    }
 
-                      return (
-                          <PaginationItem key={index}>
-                              <PaginationLink
-                                  href={changePage(page)}
-                                  isActive={page === currentPage}
-                                  isDisabled={page === currentPage} 
-                                  className={`${page === currentPage ? 'cursor-not-allowed' : 'cursor-pointer'}`}
-                              >
-                                  {page}
-                              </PaginationLink>
-                          </PaginationItem>
-                      )
+                    return (
+                        <PaginationItem key={index}>
+                            <PaginationLink
+                                href={changePage(page)}
+                                isActive={page == currentPage}
+                                isDisabled={page == currentPage}
+                                className={`${page == currentPage ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+                            >
+                                {page}
+                            </PaginationLink>
+                        </PaginationItem>
+                    )
+
                   })
-              }
+                }
 
-              <PaginationItem>
-                  <PaginationNext
-                      href={previousAndNext("next")}
-                      isDisabled={!hasNext} 
-                      className={`${!hasNext ? 'cursor-not-allowed' : 'cursor-pointer'}`}
-                  />
-              </PaginationItem>
-
+                <PaginationItem>
+                    <PaginationNext
+                        href={hasNext ? previousAndNext("next") : "#"} 
+                        isDisabled={!hasNext}
+                        className={`${!hasNext ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+                    />
+                </PaginationItem>
           </PaginationContent>
       </Pagination>
   )

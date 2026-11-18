@@ -86,3 +86,17 @@ export type ProductUpdateDetails = {
   variants: ProductVariant[],
   variantAttributes: ProductAttribute[]
 }
+
+
+export type PublicProduct = {
+  id: number,
+  category: string,
+  name: string,
+  slug: string,
+  description: string,
+  shortDescription: string,
+  price: number
+  comparePrice: number,
+  hasVariant: boolean,
+  primaryImage: string
+}

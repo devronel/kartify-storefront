@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import ReactMarkdown from "react-markdown";
 import { moneyFormat } from "@/lib/helper";
 import { ProductAttribute } from "@/types/product";
 import { Swiper as SwiperWrapper, SwiperSlide } from 'swiper/react';
@@ -492,7 +493,9 @@ export default function ProductDetail({
         {/* Description */}
         <div className="border-t pt-8">
           <h2 className="mb-3 text-lg font-semibold text-foreground">Description</h2>
-          <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
+          <div className="prose prose-sm dark:prose-invert max-w-none">
+            <ReactMarkdown>{description}</ReactMarkdown>
+          </div>
         </div>
       </div>
 

@@ -31,7 +31,7 @@ export default async function ResetPassword({ searchParams } : PageProps) {
 
     return (
         <div className="min-h-screen flex">
-            <div className="hidden lg:flex lg:w-1/2 bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden items-center justify-center">
+            <div className="hidden lg:flex lg:w-1/2 bg-linear-to-br from-primary/90 via-primary/70 to-primary/90 relative overflow-hidden items-center justify-center">
                 <div className="absolute inset-0 opacity-10">
                 <div className="absolute top-20 left-20 w-72 h-72 bg-primary rounded-full blur-3xl" />
                 <div className="absolute bottom-20 right-20 w-96 h-96 bg-primary rounded-full blur-3xl" />
@@ -46,21 +46,21 @@ export default async function ResetPassword({ searchParams } : PageProps) {
                 <h2 className="text-4xl font-bold text-white mb-4">
                     Set your new password
                 </h2>
-                <p className="text-slate-400 text-lg max-w-md mx-auto leading-relaxed">
+                <p className="text-foreground text-lg max-w-md mx-auto leading-relaxed">
                     Choose a strong password to secure your account and get back to shopping.
                 </p>
                 <div className="mt-12 grid grid-cols-3 gap-6 max-w-sm mx-auto">
                     <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
                     <p className="text-2xl font-bold text-white">50k+</p>
-                    <p className="text-slate-400 text-xs mt-1">Products</p>
+                    <p className="text-foreground text-xs mt-1">Products</p>
                     </div>
                     <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
                     <p className="text-2xl font-bold text-white">4.9</p>
-                    <p className="text-slate-400 text-xs mt-1">Rating</p>
+                    <p className="text-foreground text-xs mt-1">Rating</p>
                     </div>
                     <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
                     <p className="text-2xl font-bold text-white">24/7</p>
-                    <p className="text-slate-400 text-xs mt-1">Support</p>
+                    <p className="text-foreground text-xs mt-1">Support</p>
                     </div>
                 </div>
                 </div>

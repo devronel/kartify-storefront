@@ -9,7 +9,7 @@ export const metadata = {
 export default function Register() {
   return (
     <div className="min-h-screen flex">
-      <div className="hidden lg:flex lg:w-1/2 lg:sticky lg:top-0 lg:h-screen bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden items-center justify-center">
+      <div className="hidden lg:flex lg:w-1/2 lg:sticky lg:top-0 lg:h-screen bg-linear-to-br from-primary/90 via-primary/70 to-primary/90 relative overflow-hidden items-center justify-center">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-20 w-72 h-72 bg-primary rounded-full blur-3xl" />
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-primary rounded-full blur-3xl" />
@@ -24,21 +24,21 @@ export default function Register() {
           <h2 className="text-4xl font-bold text-white mb-4">
             Join Kartify today
           </h2>
-          <p className="text-slate-400 text-lg max-w-md mx-auto leading-relaxed">
+          <p className="text-foreground text-lg max-w-md mx-auto leading-relaxed">
             Create an account to enjoy personalized recommendations, exclusive deals, and fast checkout.
           </p>
           <div className="mt-12 grid grid-cols-3 gap-6 max-w-sm mx-auto">
             <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
               <p className="text-2xl font-bold text-white">50k+</p>
-              <p className="text-slate-400 text-xs mt-1">Products</p>
+              <p className="text-foreground text-xs mt-1">Products</p>
             </div>
             <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
               <p className="text-2xl font-bold text-white">4.9</p>
-              <p className="text-slate-400 text-xs mt-1">Rating</p>
+              <p className="text-foreground text-xs mt-1">Rating</p>
             </div>
             <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
               <p className="text-2xl font-bold text-white">24/7</p>
-              <p className="text-slate-400 text-xs mt-1">Support</p>
+              <p className="text-foreground text-xs mt-1">Support</p>
             </div>
           </div>
         </div>

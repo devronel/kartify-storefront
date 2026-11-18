@@ -11,19 +11,9 @@ import CustomPagination from "../shared/pagination";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "../ui/toast";
 import { Button, buttonVariants } from "../ui/button";
+import { PublicProduct } from "@/types/product";
+import KartifyPagination from "../shared/kartify-pagination";
 
-type PublicProduct = {
-  id: number,
-  category: string,
-  name: string,
-  slug: string,
-  description: string,
-  shortDescription: string,
-  price: number
-  comparePrice: number,
-  hasVariant: boolean,
-  primaryImage: string
-}
 
 const sortOptions = ["Newest", "Price: Low to High", "Price: High to Low", "Best Selling"];
 
@@ -47,7 +37,7 @@ export default function ProductList(){
 
       const params = new URLSearchParams({ 
         page: String(page),
-        pageSize: "12" 
+        pageSize: "20" 
       });
 
       if(q){
@@ -64,8 +54,8 @@ export default function ProductList(){
 
     } catch (error: any) {
       toast.add({
-          type: 'Error',
-          description: "Something went wrong."
+        type: 'Error',
+        description: "Something went wrong."
       })
     }
   }
@@ -176,13 +166,20 @@ export default function ProductList(){
 
               {products.totalItems > products.pageSize && (
                 <div className="mt-6">
-                  <CustomPagination 
+                  {/* <CustomPagination 
                     currentPage={page}
                     totalPages={products.totalPages}
                     visiblePages={3}
                     hasPrevious={products.hasPrevious}
                     hasNext={products.hasNext}
                     searchParams={searchParams.toString()}
+                  /> */}
+                  <KartifyPagination 
+                    currentPage={page}
+                    totalPages={products.totalPages}
+                    visiblePages={3}
+                    hasPrevious={products.hasPrevious}
+                    hasNext={products.hasNext}
                   />
                 </div>
               )}

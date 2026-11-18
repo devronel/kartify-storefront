@@ -58,7 +58,7 @@ export function NewArrivals({ product, page }: NewArrivalProps) {
                       {product.name}
                     </h3>
                     <p className="text-sm font-semibold text-foreground">
-                      { moneyFormat.format(product.price)}
+                      &#8369;{ moneyFormat.format(product.price)}
                     </p>
 
                     <Link
@@ -86,7 +86,7 @@ export function NewArrivals({ product, page }: NewArrivalProps) {
             </div>
           )
         }
-        
+
       </div>
     </section>
   );

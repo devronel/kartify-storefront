@@ -166,14 +166,6 @@ export default function ProductList(){
 
               {products.totalItems > products.pageSize && (
                 <div className="mt-6">
-                  {/* <CustomPagination 
-                    currentPage={page}
-                    totalPages={products.totalPages}
-                    visiblePages={3}
-                    hasPrevious={products.hasPrevious}
-                    hasNext={products.hasNext}
-                    searchParams={searchParams.toString()}
-                  /> */}
                   <KartifyPagination 
                     currentPage={page}
                     totalPages={products.totalPages}
